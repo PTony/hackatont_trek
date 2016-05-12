@@ -1,0 +1,7 @@
+parcours_parcours:
+    resource: "@ParcoursBundle/Resources/config/routing/parcours.yml"
+    prefix:   /parcours
+
+parcours_homepage:
+    path:     /
+    defaults: { _controller: ParcoursBundle:Default:index }

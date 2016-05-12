@@ -1,0 +1,4 @@
+services:
+#    parcours.example:
+#        class: ParcoursBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

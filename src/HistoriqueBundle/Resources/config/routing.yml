@@ -1,0 +1,7 @@
+historique_historique:
+    resource: "@HistoriqueBundle/Resources/config/routing/historique.yml"
+    prefix:   /historique
+
+historique_homepage:
+    path:     /
+    defaults: { _controller: HistoriqueBundle:Default:index }

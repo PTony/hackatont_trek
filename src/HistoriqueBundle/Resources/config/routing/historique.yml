@@ -1,0 +1,24 @@
+historique_index:
+    path:     /
+    defaults: { _controller: "HistoriqueBundle:Historique:index" }
+    methods:  GET
+
+historique_show:
+    path:     /{id}/show
+    defaults: { _controller: "HistoriqueBundle:Historique:show" }
+    methods:  GET
+
+historique_new:
+    path:     /new
+    defaults: { _controller: "HistoriqueBundle:Historique:new" }
+    methods:  [GET, POST]
+
+historique_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "HistoriqueBundle:Historique:edit" }
+    methods:  [GET, POST]
+
+historique_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "HistoriqueBundle:Historique:delete" }
+    methods:  DELETE

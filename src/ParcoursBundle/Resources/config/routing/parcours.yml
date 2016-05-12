@@ -1,0 +1,24 @@
+parcours_index:
+    path:     /
+    defaults: { _controller: "ParcoursBundle:Parcours:index" }
+    methods:  GET
+
+parcours_show:
+    path:     /{id}/show
+    defaults: { _controller: "ParcoursBundle:Parcours:show" }
+    methods:  GET
+
+parcours_new:
+    path:     /new
+    defaults: { _controller: "ParcoursBundle:Parcours:new" }
+    methods:  [GET, POST]
+
+parcours_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ParcoursBundle:Parcours:edit" }
+    methods:  [GET, POST]
+
+parcours_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ParcoursBundle:Parcours:delete" }
+    methods:  DELETE

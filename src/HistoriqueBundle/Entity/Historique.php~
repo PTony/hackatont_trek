@@ -1,0 +1,111 @@
+<?php
+
+namespace HistoriqueBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Historique
+ */
+class Historique
+{
+    /**
+     * @var int
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     */
+    private $date;
+
+    /**
+     * @var int
+     */
+    private $distanceTotal;
+
+    /**
+     * @var int
+     */
+    private $badges;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Historique
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set distanceTotal
+     *
+     * @param integer $distanceTotal
+     * @return Historique
+     */
+    public function setDistanceTotal($distanceTotal)
+    {
+        $this->distanceTotal = $distanceTotal;
+
+        return $this;
+    }
+
+    /**
+     * Get distanceTotal
+     *
+     * @return integer 
+     */
+    public function getDistanceTotal()
+    {
+        return $this->distanceTotal;
+    }
+
+    /**
+     * Set badges
+     *
+     * @param integer $badges
+     * @return Historique
+     */
+    public function setBadges($badges)
+    {
+        $this->badges = $badges;
+
+        return $this;
+    }
+
+    /**
+     * Get badges
+     *
+     * @return integer 
+     */
+    public function getBadges()
+    {
+        return $this->badges;
+    }
+}

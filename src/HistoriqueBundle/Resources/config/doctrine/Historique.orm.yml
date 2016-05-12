@@ -1,0 +1,32 @@
+HistoriqueBundle\Entity\Historique:
+    type: entity
+    table: null
+    repositoryClass: HistoriqueBundle\Repository\HistoriqueRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        date:
+            type: datetime
+        distanceTotal:
+            type: integer
+            column: distance_total
+        badges:
+            type: integer
+# many to one de plat vers soirée
+    manyToOne:
+        parcours:
+            targetEntity: ParcoursBundle\Entity\Parcours
+            joinColumn:
+                name: parcours_id
+                referencedColumnName: id
+        user:
+            targetEntity: UserBundle\Entity\User
+            joinColumn:
+                name: User_id
+                referencedColumnName: id
+
+    lifecycleCallbacks: {  }

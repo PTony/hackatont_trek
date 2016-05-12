@@ -1,0 +1,29 @@
+ParcoursBundle\Entity\Parcours:
+    type: entity
+    table: null
+    repositoryClass: ParcoursBundle\Repository\ParcoursRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 255
+        niveau:
+            type: integer
+        duree:
+            type: string
+            length: 255
+        distance:
+            type: integer
+        typeLocomotion:
+            type: string
+            length: 255
+            column: type_locomotion
+        lieu:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
