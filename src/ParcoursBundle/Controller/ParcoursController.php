@@ -7,6 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use ParcoursBundle\Entity\Parcours;
 use ParcoursBundle\Form\ParcoursType;
+use Cmfcmf\OpenWeatherMap;
+use Cmfcmf\OpenWeatherMap\Exception as OWMException;
+use Vendor\autoload;
 
 /**
  * Parcours controller.
@@ -18,14 +21,52 @@ class ParcoursController extends Controller
      * Lists all Parcours entities.
      *
      */
+    // public function indexAction()
+    // {
+    //     $em = $this->getDoctrine()->getManager();
+
+    //     $parcours = $em->getRepository('ParcoursBundle:Parcours')->findAll();
+
+    //     return $this->render('ParcoursBundle:parcours:index.html.twig', array(
+    //         'parcours' => $parcours,
+    //     ));
+    // }
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
         $parcours = $em->getRepository('ParcoursBundle:Parcours')->findAll();
 
+        // Language of data (try your own language here!):
+        $lang = 'fr';
+
+        // Units (can be 'metric' or 'imperial' [default]):
+        $units = 'metric';
+
+        // Create OpenWeatherMap object.
+        // Don't use caching (take a look into Examples/Cache.php to see how it works).
+        $owm = new OpenWeatherMap('0df17ea554ebe14617d1fd046e544a81');
+
+        try {
+            $weather = $owm->getWeather('Chartres', $units, $lang);
+        } catch(OWMException $e) {
+            echo 'OpenWeatherMap exception: ' . $e->getMessage() . ' (Code ' . $e->getCode() . ').';
+        } catch(\Exception $e) {
+            echo 'General exception: ' . $e->getMessage() . ' (Code ' . $e->getCode() . ').';
+        }
+        //$weather->city->lat=3;
+        //var_dump($weather);
+        // echo $weather->temperature;
+
         return $this->render('ParcoursBundle:parcours:index.html.twig', array(
             'parcours' => $parcours,
+            'weather' => $weather,
+
+
+
+
+        //return $this->render('CircuitBundle:circuit:index.html.twig', array(
+           // 'circuits' => $circuits,
         ));
     }
 

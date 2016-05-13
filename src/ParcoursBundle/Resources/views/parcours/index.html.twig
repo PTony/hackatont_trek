@@ -12,17 +12,21 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#">
+                    <a href="{{ path("homepage") }}">
+                    <img width="32px" style="float:left" src="{{ asset('img/hiking-person-silhouette-with-a-stick.png') }}"/>
                         Trek-It
                     </a>
                 </li>
                 <li>
+                    <img width="32px" style="float:left" src="{{ asset('img/hiking-person-silhouette-with-a-stick.png') }}"/>
                     <a href="{{ path("parcours_index") }}">Dashboard</a>
                 </li>
                 <li>
-                    <a href="#">Météo</a>
+                    <img width="32px" style="float:left" src="{{ asset('img/forecast.png') }}"/>
+                    <a href="#">Météo {{ weather.temperature }}</a>
                 </li>
                 <li>
+                    <img width="32px" style="float:left" src="{{ asset('img/seo-performance-graphic-in-a-circle.png') }}"/>
                     <a href="{{ path("historique_index") }}">Performances</a>
                 </li>
 
