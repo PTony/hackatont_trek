@@ -24,7 +24,7 @@ class ParcoursController extends Controller
 
         $parcours = $em->getRepository('ParcoursBundle:Parcours')->findAll();
 
-        return $this->render('parcours/index.html.twig', array(
+        return $this->render('ParcoursBundle:parcours:index.html.twig', array(
             'parcours' => $parcours,
         ));
     }
@@ -47,7 +47,7 @@ class ParcoursController extends Controller
             return $this->redirectToRoute('parcours_show', array('id' => $parcour->getId()));
         }
 
-        return $this->render('parcours/new.html.twig', array(
+        return $this->render('ParcoursBundle:parcours:new.html.twig', array(
             'parcour' => $parcour,
             'form' => $form->createView(),
         ));
@@ -61,7 +61,7 @@ class ParcoursController extends Controller
     {
         $deleteForm = $this->createDeleteForm($parcour);
 
-        return $this->render('parcours/show.html.twig', array(
+        return $this->render('ParcoursBundle:parcours:show.html.twig', array(
             'parcour' => $parcour,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -85,7 +85,7 @@ class ParcoursController extends Controller
             return $this->redirectToRoute('parcours_edit', array('id' => $parcour->getId()));
         }
 
-        return $this->render('parcours/edit.html.twig', array(
+        return $this->render('ParcoursBundle:parcours:edit.html.twig', array(
             'parcour' => $parcour,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

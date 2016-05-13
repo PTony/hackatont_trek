@@ -1,5 +1,4 @@
 <?php
-// src/UserBundle/Form/RegistrationType.php
 
 namespace UserBundle\Form;
 
