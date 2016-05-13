@@ -7,19 +7,15 @@
     </style>
 
 
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
-                    </a>
-                </li>
+    <div class="nav_bar" xmlns="http://www.w3.org/1999/xhtml">
+        <nav>
+            <ul>
                 <li><a href="{{ path("fos_user_security_login") }}" title="Télécharger">Login</a></li>
                 <li><a href="{{ path("historique_index") }}" title="Télécharger">Performances</a></li>
                 <li><a href="{{ path("parcours_index") }}" title="Télécharger">Parcours</a></li>
-                </li>
             </ul>
-        </div>
+        </nav>
+    </div>
 
     <h1>Parcours list</h1>
     <div id="map">
@@ -65,7 +61,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('parcours_new') }}">Ajouter un parcour</a>
+            <a href="{{ path('parcours_new') }}">Create a new entry</a>
         </li>
     </ul>
 

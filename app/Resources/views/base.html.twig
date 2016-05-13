@@ -5,25 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}
-
-
-
-
-        <!-- Appel CSS Boostrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
         <link href="{{ asset('bundles/parcours/css/style.css') }}" type="text/css" rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        {% endblock %}
     </head>
+    <div class="nav_header" xmlns="http://www.w3.org/1999/xhtml">
+        <nav>
+            <ul>
+                <li><a href="{{ path("homepage") }}" title="Télécharger">Home Page</a></li>
+                <li><a href="{{ path("historique_index") }}" title="Télécharger">My Performance</a></li>
+                <li><a href="{{ path("parcours_index") }}" title="Télécharger">Trek </a></li>
+            </ul>
+        </nav>
+    </div>
     <body>
-
-
-        {% block body %}{% endblock %}
-
-        {% block javascript %}
+        {% block body %}
 
         {% endblock %}
 
