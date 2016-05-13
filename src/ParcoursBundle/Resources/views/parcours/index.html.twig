@@ -1,10 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Parcours list</h1>
-    <div id="map">vous êtes ici
-    </div>
+    <style type="text/css">
+        html, body { height: 100%; margin: 0; padding: 0; }
+        #map { height: 100%; }
+    </style>
 
+
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Start Bootstrap
+                    </a>
+                </li>
+                <li><a href="{{ path("fos_user_security_login") }}" title="Télécharger">Login</a></li>
+                <li><a href="{{ path("historique_index") }}" title="Télécharger">Performances</a></li>
+                <li><a href="{{ path("parcours_index") }}" title="Télécharger">Parcours</a></li>
+                </li>
+            </ul>
+        </div>
+
+    <h1>Parcours list</h1>
+    <div id="map">
+    </div>
 
     <table>
         <thead>
@@ -49,6 +68,8 @@
             <a href="{{ path('parcours_new') }}">Create a new entry</a>
         </li>
     </ul>
+
+    <script type="text/javascript" src="{{ asset ('bundles/parcours/js/main.js') }}"></script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg1xFdFYyk1E5Sa5Oxayr9pPCCfDTM5h8&callback=initMap">
     </script>
