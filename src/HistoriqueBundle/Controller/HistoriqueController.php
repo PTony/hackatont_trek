@@ -24,7 +24,7 @@ class HistoriqueController extends Controller
 
         $historiques = $em->getRepository('HistoriqueBundle:Historique')->findAll();
 
-        return $this->render('historique/index.html.twig', array(
+        return $this->render('HistoriqueBundle:historique:index.html.twig', array(
             'historiques' => $historiques,
         ));
     }
@@ -47,7 +47,7 @@ class HistoriqueController extends Controller
             return $this->redirectToRoute('historique_show', array('id' => $historique->getId()));
         }
 
-        return $this->render('historique/new.html.twig', array(
+        return $this->render('HistoriqueBundle:historique:new.html.twig', array(
             'historique' => $historique,
             'form' => $form->createView(),
         ));
@@ -61,7 +61,7 @@ class HistoriqueController extends Controller
     {
         $deleteForm = $this->createDeleteForm($historique);
 
-        return $this->render('historique/show.html.twig', array(
+        return $this->render('HistoriqueBundle:historique:show.html.twig', array(
             'historique' => $historique,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -85,7 +85,7 @@ class HistoriqueController extends Controller
             return $this->redirectToRoute('historique_edit', array('id' => $historique->getId()));
         }
 
-        return $this->render('historique/edit.html.twig', array(
+        return $this->render('HistoriqueBundle:historique:edit.html.twig', array(
             'historique' => $historique,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
