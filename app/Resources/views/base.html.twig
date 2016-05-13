@@ -3,11 +3,21 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+
+        {% endblock %}
+        <link href="{{ asset('bundles/parcours/css/style.css') }}" type="text/css" rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
     </head>
     <body>
+
+
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+        {% block javascript %}
+
+        {% endblock %}
+        <script type="text/javascript" src="{{ asset ('bundles/parcours/js/main.js') }}"></script>
     </body>
 </html>
