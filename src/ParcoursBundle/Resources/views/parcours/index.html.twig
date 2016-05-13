@@ -5,8 +5,10 @@
         html, body { height: 100%; margin: 0; padding: 0; }
         #map { height: 100%; }
     </style>
+<!-- ========================================== -->
+    <div id="wrapper">
 
-
+        <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
@@ -14,60 +16,108 @@
                         Start Bootstrap
                     </a>
                 </li>
-                <li><a href="{{ path("fos_user_security_login") }}" title="Télécharger">Login</a></li>
-                <li><a href="{{ path("historique_index") }}" title="Télécharger">Performances</a></li>
-                <li><a href="{{ path("parcours_index") }}" title="Télécharger">Parcours</a></li>
+                <li>
+                    <a href="{{ path("parcours_index") }}">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Météo</a>
+                </li>
+                <li>
+                    <a href="{{ path("historique_index") }}">Performances</a>
+                </li>
+                <li>
+                    <a href="#">Events</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
                 </li>
             </ul>
         </div>
+        <!-- /#sidebar-wrapper -->
 
-    <h1>Parcours list</h1>
-    <div id="map">
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Simple Sidebar</h1>
+                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
+                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                    </div>
+                </div>
+            </div>
+
+            <h1>Parcours list</h1>
+            <div id="map">
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Niveau</th>
+                        <th>Duree</th>
+                        <th>Distance</th>
+                        <th>Typelocomotion</th>
+                        <th>Lieu</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for parcour in parcours %}
+                    <tr>
+                        <td><a href="{{ path('parcours_show', { 'id': parcour.id }) }}">{{ parcour.id }}</a></td>
+                        <td>{{ parcour.nom }}</td>
+                        <td>{{ parcour.niveau }}</td>
+                        <td>{{ parcour.duree }}</td>
+                        <td>{{ parcour.distance }}</td>
+                        <td>{{ parcour.typeLocomotion }}</td>
+                        <td>{{ parcour.lieu }}</td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('parcours_show', { 'id': parcour.id }) }}">show</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('parcours_edit', { 'id': parcour.id }) }}">edit</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <ul>
+                <li>
+                    <a href="{{ path('parcours_new') }}">Ajouter un parcour</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#page-content-wrapper -->
+
     </div>
+    <!-- /#wrapper -->
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Niveau</th>
-                <th>Duree</th>
-                <th>Distance</th>
-                <th>Typelocomotion</th>
-                <th>Lieu</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for parcour in parcours %}
-            <tr>
-                <td><a href="{{ path('parcours_show', { 'id': parcour.id }) }}">{{ parcour.id }}</a></td>
-                <td>{{ parcour.nom }}</td>
-                <td>{{ parcour.niveau }}</td>
-                <td>{{ parcour.duree }}</td>
-                <td>{{ parcour.distance }}</td>
-                <td>{{ parcour.typeLocomotion }}</td>
-                <td>{{ parcour.lieu }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('parcours_show', { 'id': parcour.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('parcours_edit', { 'id': parcour.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('parcours_new') }}">Ajouter un parcour</a>
-        </li>
-    </ul>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+<!-- ========================================== -->
+
 
     <script type="text/javascript" src="{{ asset ('bundles/parcours/js/main.js') }}"></script>
     <script async defer
